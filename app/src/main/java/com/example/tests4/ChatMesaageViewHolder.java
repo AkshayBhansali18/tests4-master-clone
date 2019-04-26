@@ -14,9 +14,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 
 public class ChatMesaageViewHolder {
-
     public static class ChatMessageViewHolder extends RecyclerView.ViewHolder {
         private static final String TAG = "ChatMessageViewHolder";
         private final Activity activity;
@@ -29,9 +29,8 @@ public class ChatMesaageViewHolder {
             this.activity = activity;
             name = (TextView) itemView.findViewById(android.R.id.text1);
             message = (TextView) itemView.findViewById(android.R.id.text2);
-            image= new ImageView(activity);
+            image = new ImageView(activity);
             ((ViewGroup)itemView).addView(image);
-
         }
 
         public void bind(ChatMessage chat) {
@@ -39,9 +38,19 @@ public class ChatMesaageViewHolder {
             if (chat.message.startsWith("https://firebasestorage.googleapis.com/") || chat.message.startsWith("content://")) {
                 message.setVisibility(View.INVISIBLE);
                 image.setVisibility(View.VISIBLE);
+
+                /*Picasso
+                        .get()
+                        .load(ChatActivity.uriarray.get(size-1))
+                        .fit()
+                        .into(image);
+                        */
+                /*
                 Glide.with(activity)
                         .load(chat.message)
                         .into(image);
+                */
+
             }
             else {
                 message.setVisibility(View.VISIBLE);

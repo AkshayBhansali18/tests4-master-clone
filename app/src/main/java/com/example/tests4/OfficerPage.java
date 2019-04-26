@@ -44,7 +44,7 @@ public class OfficerPage extends AppCompatActivity {
         FONameTextView = findViewById(R.id.FOName);
         StatusTextView = findViewById(R.id.status);
         CoordTextView = findViewById(R.id.coord);
-
+        floatingActionButton=findViewById(R.id.fab);
         name = getIntent().getExtras().getString("USER");
         uid = getIntent().getExtras().getString("UID");
 
@@ -96,17 +96,6 @@ public class OfficerPage extends AppCompatActivity {
                         }
                     });
                 }
-            }
-        });
-
-
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
             }
         });
 
